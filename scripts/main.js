@@ -12,50 +12,49 @@
 
 // 0. write your own forEach() that takes two arguments: an array, and a callback
 
-function forEach(array, callback){
-    // YOUR CODE HERE
-    var total = 1;
-    forEach([1, 2, 3, 4], function(a){ total *= a; });
+function forEach(array, callback) {
+    for (var i = 0; i < array.length; i++) {
+        callback(array[i]);
+    }
 }
 
-// testing your code with console.assert
+var factorailArray = [1, 2, 3, 4], total = 1;
 
-// and finally assert; if this fails, the program stops
+function factorial(multiplyingNumbers) {
+    total *= multiplyingNumbers;
+}
+
+forEach(factorailArray, factorial);
+
 console.assert(total === 24);
 
 
 // 1. calculate the sum of numbers (returns the sum (A NUMBER))
+var sumNumber = 0, sumArray = [1, 2, 3, 4, 5];
 
-function sum(){
-    // parse arguments into an array
-    var sumNumber = 0;
-    var args = [].slice.call(arguments);
-    for (var i = 0; i < args.length; i++) {
-        sumNumber += args[i];
-    }
-    return sumNumber;
-    // .. do something with each element of args
-    // YOUR CODE HERE
+function sum(addingNumbers){
+    sumNumber += addingNumbers;
 }
 
-console.assert(sum(1, 2, 3, 4, 5) === 15 )
+forEach(sumArray, sum);
+
+console.assert(sumNumber === 15);
 
 // 2. calculate the average of numbers (returns the average (A NUMBER))
 
-function average(){
-    // parse arguments into an array
+function average(meanNumbers){
     var averageNumber = 0;
     var args = [].slice.call(arguments);
     for (var i = 0; i < args.length; i++) {
-        averageNumber +=args[i];
+        averageNumber += args[i];
+        if(i === args.length - 1) {
+            averageNumber /= args.length;
+        }
     }
-    averageNumber /= i;
     return averageNumber;
-    // .. do something with each element of args
-    // YOUR CODE HERE
 }
 
-console.assert(average(2, 4, 6, 8) === 5 )
+console.assert(average(2, 4, 6, 8) === 5);
 
 // 3. find the largest number of the inputs (returns the largest input (A NUMBER))
 
@@ -112,34 +111,72 @@ function longest(){
 
 // .sort()
 arrayStrings.sort();
+console.log(arrayStrings);
 
 // .concat()
+var moreArrayStrings = ['fig', 'grapefruit', 'honeydew melon'];
+var finalArrayStrings = arrayStrings.concat(moreArrayStrings);
+console.log(finalArrayStrings);
 
-arrayStrings.concat('fig', ['grapefruit, honeydew melon']);
 // .indexOf()
-
-console.log('The word "banana" can be found at the '+arrayStrings.indexOf('banana')+' point in this array. Neat');
+console.log('The word "banana" can be found at the '+finalArrayStrings.indexOf('banana')+' point in this array. Neat');
 
 // .split()
-//I can't find any results for an array method called split(), but I can find a string method for this. Sooooo we going with that.
-var separator = ' ';
-sampleText.split(separator);
 console.log(sampleText);
+var sampleTextArray = sampleText.split(' ');
+console.log(sampleTextArray);
 
 // .join()
+var newSampleText = sampleTextArray.join(' ');
+console.log(newSampleText);
 
 // .pop()
+var lastFruit = finalArrayStrings.pop();
+console.log(lastFruit);
+console.log(finalArrayStrings);
 
 // .push()
+finalArrayStrings.push(lastFruit);
+console.log(finalArrayStrings);
 
 // .slice()
+var someFruits = finalArrayStrings.slice(0,4);
+console.log(someFruits);
 
 // .splice()
+var cranberryString = finalArrayStrings.splice(2, 1, 'cranberry');
+console.log(finalArrayStrings);
+console.log(cranberryString);
 
 // .shift()
+var goodbyeApples = finalArrayStrings.shift();
+console.log(finalArrayStrings);
+console.log(goodbyeApples);
 
 // .unshift()
+finalArrayStrings.unshift(goodbyeApples);
+console.log(finalArrayStrings);
 
 // .filter()
+console.log(arrayNumbers);
+var lessNumbers = arrayNumbers.filter(function(values) {
+    if (values < 300){
+        return true;
+    } else {
+        return false;
+    }
+});
+console.log(lessNumbers);
 
 // .map()
+var numbersPlusOneThousand = arrayNumbers.map(function(values) {
+    return values+1000;
+});
+console.log(numbersPlusOneThousand);
+
+
+
+
+
+
+
