@@ -111,54 +111,49 @@ function longest(){
 
 // .sort()
 arrayStrings.sort();
-console.log(arrayStrings);
+console.assert(arrayStrings[1] === 'banana');
 
 // .concat()
 var moreArrayStrings = ['fig', 'grapefruit', 'honeydew melon'];
 var finalArrayStrings = arrayStrings.concat(moreArrayStrings);
-console.log(finalArrayStrings);
+console.assert(finalArrayStrings[7] === 'honeydew melon');
 
 // .indexOf()
-console.log('The word "banana" can be found at the '+finalArrayStrings.indexOf('banana')+' point in this array. Neat');
+console.assert(finalArrayStrings.indexOf('dragonfruit') === 3);
 
 // .split()
-console.log(sampleText);
 var sampleTextArray = sampleText.split(' ');
-console.log(sampleTextArray);
+console.assert(sampleTextArray[0] === 'Lorem');
 
 // .join()
 var newSampleText = sampleTextArray.join(' ');
-console.log(newSampleText);
+console.assert(typeof newSampleText === 'string');
 
 // .pop()
 var lastFruit = finalArrayStrings.pop();
-console.log(lastFruit);
-console.log(finalArrayStrings);
+console.assert(!finalArrayStrings[7])
 
 // .push()
 finalArrayStrings.push(lastFruit);
-console.log(finalArrayStrings);
+console.assert(finalArrayStrings[7] === 'honeydew melon');
 
 // .slice()
 var someFruits = finalArrayStrings.slice(0,4);
-console.log(someFruits);
+console.assert(!someFruits[4]);
 
 // .splice()
 var cranberryString = finalArrayStrings.splice(2, 1, 'cranberry');
-console.log(finalArrayStrings);
-console.log(cranberryString);
+console.assert(cranberryString[0] === 'canteloupe');
 
 // .shift()
 var goodbyeApples = finalArrayStrings.shift();
-console.log(finalArrayStrings);
-console.log(goodbyeApples);
+console.assert(finalArrayStrings[0] === 'banana');
 
 // .unshift()
 finalArrayStrings.unshift(goodbyeApples);
-console.log(finalArrayStrings);
+console.assert(finalArrayStrings[0] === 'apple');
 
 // .filter()
-console.log(arrayNumbers);
 var lessNumbers = arrayNumbers.filter(function(values) {
     if (values < 300){
         return true;
@@ -166,13 +161,13 @@ var lessNumbers = arrayNumbers.filter(function(values) {
         return false;
     }
 });
-console.log(lessNumbers);
+console.assert(lessNumbers.length < arrayNumbers.length);
 
 // .map()
 var numbersPlusOneThousand = arrayNumbers.map(function(values) {
     return values+1000;
 });
-console.log(numbersPlusOneThousand);
+console.assert(numbersPlusOneThousand[0] > 1000);
 
 
 
